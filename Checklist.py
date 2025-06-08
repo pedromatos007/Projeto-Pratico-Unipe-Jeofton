@@ -328,12 +328,12 @@ class LoginApp:
         )
         login_button.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=200, height=40)
         
-        # Novo botão verde de criar conta
+        # botao para criar conta
         create_account_container = tk.Frame(self.login_frame, bg=COLORS["bg_darker"], height=50)
         create_account_container.pack(fill=tk.X, pady=(0, 15))
         create_account_container.pack_propagate(False)
         
-        # Adicionar um efeito de brilho ao redor do botão
+        # efeito do botao de criar conta
         glow_frame = tk.Frame(
             create_account_container,
             bg=COLORS["accent_green"],
@@ -346,7 +346,7 @@ class LoginApp:
         create_account_button = AnimatedButton(
             create_account_container,
             text="CRIAR CONTA",
-            command=self.show_register_page,  # Redireciona para a página de registro
+            command=self.show_register_page,  
             bg=COLORS["accent_green"],
             hover_bg=COLORS["accent_green_hover"],
             fg=COLORS["bg_darker"],
@@ -356,7 +356,7 @@ class LoginApp:
         )
         create_account_button.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=200, height=40)
         
-        # Adicionar um ícone ao botão para torná-lo mais atrativo
+        #  ícone do botão de criar conta
         def add_icon_to_button():
             icon_label = tk.Label(
                 create_account_button,
@@ -367,7 +367,7 @@ class LoginApp:
             )
             icon_label.place(x=25, rely=0.5, anchor="w")
             
-            # Atualizar cor do ícone quando o botão mudar de cor
+            # mudança de cor do botao
             def update_icon_color(event=None):
                 icon_label.config(bg=create_account_button["bg"])
             
@@ -376,7 +376,7 @@ class LoginApp:
         
         self.login_frame.after(100, add_icon_to_button)
         
-        # Texto de ajuda
+        # ajuda caso de erro
         help_label = tk.Label(
             self.login_frame,
             text="Precisa de uma conta para acessar o sistema",
@@ -392,7 +392,7 @@ class LoginApp:
         for widget in self.login_frame.winfo_children()[3:]:
             widget.destroy()
         
-        # Título da página
+        # titulo da app
         page_title = tk.Label(
             self.login_frame,
             text="Criar Nova Conta",
@@ -516,12 +516,12 @@ class LoginApp:
         )
         confirm_password_entry.pack(fill=tk.X, ipady=10, pady=(5, 30))
         
-        # Novo botão verde de criar conta na página de registro (AUMENTADO)
-        create_account_container = tk.Frame(self.login_frame, bg=COLORS["bg_darker"], height=70)  # Altura aumentada
+        # botao novo de criar conta(aumentado)
+        create_account_container = tk.Frame(self.login_frame, bg=COLORS["bg_darker"], height=70) 
         create_account_container.pack(fill=tk.X, pady=(0, 20))
         create_account_container.pack_propagate(False)
         
-        # Adicionar um efeito de brilho ao redor do botão (AUMENTADO)
+        #  novo efeito do botao de criar conta (AUMENTADO)
         glow_frame = tk.Frame(
             create_account_container,
             bg=COLORS["accent_green"],
@@ -538,24 +538,24 @@ class LoginApp:
             bg=COLORS["accent_green"],
             hover_bg=COLORS["accent_green_hover"],
             fg=COLORS["bg_darker"],
-            font=("Segoe UI", 14, "bold"),  # Fonte aumentada
+            font=("Segoe UI", 14, "bold"),  
             padx=20,
-            pady=15  # Padding vertical aumentado
+            pady=15  
         )
-        create_account_button.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=270, height=60)  # Largura e altura aumentadas
+        create_account_button.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=270, height=60)  
         
-        # Adicionar um ícone ao botão para torná-lo mais atrativo (AJUSTADO)
+        
         def add_icon_to_button():
             icon_label = tk.Label(
                 create_account_button,
                 text="✚",
-                font=("Segoe UI", 14, "bold"),  # Fonte do ícone aumentada
+                font=("Segoe UI", 14, "bold"),  
                 fg=COLORS["bg_darker"],
                 bg=COLORS["accent_green"]
             )
-            icon_label.place(x=35, rely=0.5, anchor="w")  # Posição ajustada
+            icon_label.place(x=35, rely=0.5, anchor="w") 
             
-            # Atualizar cor do ícone quando o botão mudar de cor
+           
             def update_icon_color(event=None):
                 icon_label.config(bg=create_account_button["bg"])
             
@@ -564,14 +564,14 @@ class LoginApp:
         
         self.login_frame.after(100, add_icon_to_button)
         
-        # Linha separadora
+        # Linha divisórias 
         separator_frame = tk.Frame(self.login_frame, bg=COLORS["bg_darker"], height=30)
         separator_frame.pack(fill=tk.X, pady=(10, 10))
         
         separator_line = tk.Frame(separator_frame, bg=COLORS["border"], height=1)
         separator_line.place(relx=0.5, rely=0.5, width=290, anchor="center")
         
-        # Botão para voltar ao login
+        # Botão para retornar ao login
         back_button_container = tk.Frame(self.login_frame, bg=COLORS["bg_darker"], height=40)
         back_button_container.pack(fill=tk.X)
         back_button_container.pack_propagate(False)
@@ -687,15 +687,11 @@ class ChecklistApp:
         self.username = username
         self.root.title(f"Checklist - {username}")
         
-        # Configurar para tela inteira
+    
         screen_width = self.root.winfo_screenwidth()
         screen_height = self.root.winfo_screenheight()
         self.root.geometry(f"{screen_width}x{screen_height}")
-        self.root.state('zoomed')  # Maximiza a janela no Windows
-        
-        # Em sistemas Linux/Mac, use:
-        # self.root.attributes('-zoomed', True)  # Linux
-        # self.root.attributes('-fullscreen', True)  # Alternativa para tela cheia completa
+        self.root.state('zoomed') 
         
         self.root.minsize(800, 600)
         self.root.configure(bg=COLORS["bg_dark"])
@@ -818,7 +814,7 @@ class ChecklistApp:
         )
         category_filter.grid(row=1, column=1, sticky="w", padx=(0, 20))
         category_filter.bind("<<ComboboxSelected>>", lambda e: self.apply_filters())
-        category_filter.configure(background=COLORS["bg_dark"])  # Adicionar esta linha
+        category_filter.configure(background=COLORS["bg_dark"])  
         
         difficulty_label = tk.Label(
             filter_frame,

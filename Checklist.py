@@ -328,12 +328,12 @@ class LoginApp:
         )
         login_button.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=200, height=40)
         
-        # botao para criar conta
+
         create_account_container = tk.Frame(self.login_frame, bg=COLORS["bg_darker"], height=50)
         create_account_container.pack(fill=tk.X, pady=(0, 15))
         create_account_container.pack_propagate(False)
         
-        # efeito do botao de criar conta
+   
         glow_frame = tk.Frame(
             create_account_container,
             bg=COLORS["accent_green"],
@@ -356,7 +356,7 @@ class LoginApp:
         )
         create_account_button.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=200, height=40)
         
-        #  ícone do botão de criar conta
+  
         def add_icon_to_button():
             icon_label = tk.Label(
                 create_account_button,
@@ -367,7 +367,7 @@ class LoginApp:
             )
             icon_label.place(x=25, rely=0.5, anchor="w")
             
-            # mudança de cor do botao
+
             def update_icon_color(event=None):
                 icon_label.config(bg=create_account_button["bg"])
             
@@ -375,8 +375,7 @@ class LoginApp:
             create_account_button.bind("<Leave>", lambda e: update_icon_color())
         
         self.login_frame.after(100, add_icon_to_button)
-        
-        # ajuda caso de erro
+
         help_label = tk.Label(
             self.login_frame,
             text="Precisa de uma conta para acessar o sistema",
@@ -392,7 +391,7 @@ class LoginApp:
         for widget in self.login_frame.winfo_children()[3:]:
             widget.destroy()
         
-        # titulo da app
+ 
         page_title = tk.Label(
             self.login_frame,
             text="Criar Nova Conta",
@@ -515,13 +514,11 @@ class LoginApp:
             show="•"
         )
         confirm_password_entry.pack(fill=tk.X, ipady=10, pady=(5, 30))
-        
-        # botao novo de criar conta(aumentado)
+       
         create_account_container = tk.Frame(self.login_frame, bg=COLORS["bg_darker"], height=70) 
         create_account_container.pack(fill=tk.X, pady=(0, 20))
         create_account_container.pack_propagate(False)
-        
-        #  novo efeito do botao de criar conta (AUMENTADO)
+
         glow_frame = tk.Frame(
             create_account_container,
             bg=COLORS["accent_green"],
@@ -529,7 +526,7 @@ class LoginApp:
             highlightthickness=1,
             bd=0
         )
-        glow_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=280, height=66)  # Largura e altura aumentadas
+        glow_frame.place(relx=0.5, rely=0.5, anchor=tk.CENTER, width=280, height=66)  
         
         create_account_button = AnimatedButton(
             create_account_container,
@@ -563,15 +560,13 @@ class LoginApp:
             create_account_button.bind("<Leave>", lambda e: update_icon_color())
         
         self.login_frame.after(100, add_icon_to_button)
-        
-        # Linha divisórias 
+       
         separator_frame = tk.Frame(self.login_frame, bg=COLORS["bg_darker"], height=30)
         separator_frame.pack(fill=tk.X, pady=(10, 10))
         
         separator_line = tk.Frame(separator_frame, bg=COLORS["border"], height=1)
         separator_line.place(relx=0.5, rely=0.5, width=290, anchor="center")
         
-        # Botão para retornar ao login
         back_button_container = tk.Frame(self.login_frame, bg=COLORS["bg_darker"], height=40)
         back_button_container.pack(fill=tk.X)
         back_button_container.pack_propagate(False)
